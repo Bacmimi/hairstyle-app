@@ -3,21 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hairstyle Gallery</title>
+    <title>Ipoh Hairstyles | Real People, Real Work</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>💇‍♀️ My Hairstyle Gallery</h1>
-        <p>Browse through my work and choose your next look!</p>
+        <h1>Ipoh Hairstyles</h1>
+        <p>Real hairstyles on real people • Made by me</p>
+        <div class="subtitle">Ipoh, Perak • Malaysia</div>
     </header>
 
     <main>
         <div class="gallery" id="hairstyle-gallery">
-            <!-- Hairstyles will be added here by JavaScript -->
+            <!-- Photos will be added here -->
         </div>
     </main>
 
+    <footer>
+        © 2026 • Authentic hairstyles from Ipoh, Malaysia • No AI, just real work
+    </footer>
+
+    <!-- Simple lightbox for fullscreen view -->
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <span class="close-btn">&times;</span>
+        <div class="modal-content">
+            <img id="modal-image" src="" alt="Full size hairstyle">
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+        // Add click event to all images for fullscreen view
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'IMG' && e.target.closest('.hairstyle-card')) {
+                const modal = document.getElementById('image-modal');
+                const modalImg = document.getElementById('modal-image');
+                modal.style.display = 'block';
+                modalImg.src = e.target.src;
+            }
+        });
+
+        function closeModal() {
+            document.getElementById('image-modal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
